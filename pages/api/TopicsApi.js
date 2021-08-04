@@ -4,7 +4,7 @@ const TOPIC_SEARCH_URL =
 export const FetchSearchTopics = async (topic) => {
   const res = await fetch(TOPIC_SEARCH_URL + topic, {
     headers: {
-      "Ocp-Apim-Subscription-Key": process.env.SUB_KEY,
+      "Ocp-Apim-Subscription-Key": "dc65a273321945f0b88671d34518e68a",
     },
   });
   return await res.json();

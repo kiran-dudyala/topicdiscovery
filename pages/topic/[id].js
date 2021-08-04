@@ -63,7 +63,7 @@ export async function getServerSideProps(context) {
     `https://topicdiscovery-api.azure-api.net/TopicDiscovery/Topic?topic= ${context.params.id}`,
     {
       headers: {
-        "Ocp-Apim-Subscription-Key": process.env.SUB_KEY,
+        "Ocp-Apim-Subscription-Key": "dc65a273321945f0b88671d34518e68a",
       },
     }
   );
