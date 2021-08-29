@@ -1,12 +1,14 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
+var startLabel;
+var endLabel;
+
 const data = (payload) => {
-  const dateOptions = { year: "numeric", month: "short", day: "numeric" };
+  
   let items = payload?.data.map((x) => x.data);
-  let dates = payload?.data.map((x) =>
-    new Date(x.date).toLocaleDateString(undefined, dateOptions)
-  );
+  let dates = payload?.data.map((x) =>x.date);
+
   let radiusPointsList = [];
   [...Array(payload?.data.length)].map((e, i) => {
     if (i === payload?.data.length - 1) {
@@ -15,6 +17,9 @@ const data = (payload) => {
       radiusPointsList.push(0);
     }
   });
+
+  startLabel = payload.startLabel;
+  endLabel = payload.endLabel;
 
   return {
     labels: dates,
@@ -96,12 +101,10 @@ const options = {
           fontColor: "#444954",
           userCallback: function (label, index, labels) {
             if (index === 0) {
-              let startLabel = labels[0].split(",");
-              return startLabel[0].split(" ")[0] + startLabel[1];
+              return startLabel;
             }
             if (index === labels.length - 1) {
-              let endLabel = labels[labels.length - 1].split(",");
-              return endLabel[0].split(" ")[0] + endLabel[1];
+              return endLabel;
             }
           },
         },
