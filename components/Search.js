@@ -45,9 +45,10 @@ export default function Search(props) {
 
   const handleOnchange = (e) => {
     if (e.target.value.length > 2) {
+      let data = e.target.value;
       setSearchStarted(true);
       FetchSearchTopics(e.target.value).then((res) => {
-        setSearchTopic(res);
+        setSearchTopic(res.length > 0 && res.includes(data.toLocaleUpperCase())? res: [data]);
       });
     }
   };
@@ -61,7 +62,7 @@ export default function Search(props) {
       blurOnSelect={true}
       noOptionsText={
         searcShtarted
-          ? "ok, finding your now..."
+          ? "ok, finding your search now..."
           : "please enter your search..."
       }
       getOptionLabel={(option) => option.toUpperCase()}

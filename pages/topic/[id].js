@@ -59,11 +59,10 @@ export default function Topic({ data, topic, errCode }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(
-    `https://topicdiscovery-api.azure-api.net/TopicDiscovery/Topic?topic= ${context.params.id}`,
+  const res = await fetch(process.env.PROD_TOPIC + context.params.id,
     {
       headers: {
-        "Ocp-Apim-Subscription-Key": "dc65a273321945f0b88671d34518e68a",
+        "Ocp-Apim-Subscription-Key": process.env.SUB_KEY,
       },
     }
   );

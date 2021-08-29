@@ -59,14 +59,11 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    `https://topicdiscovery-api.azure-api.net/TopicDiscovery/Topics`,
-    {
-      headers: {
-        "Ocp-Apim-Subscription-Key": "dc65a273321945f0b88671d34518e68a",
-      },
-    }
-  );
+  const res = await fetch(process.env.PROD_TOPICS, {
+    headers: {
+      "Ocp-Apim-Subscription-Key": process.env.SUB_KEY,
+    },
+  });
   const response = await res.json();
   var data = ArrayChunk(response, 3);
   return {

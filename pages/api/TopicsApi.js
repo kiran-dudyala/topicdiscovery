@@ -1,11 +1,10 @@
-const TOPIC_SEARCH_URL =
-  "https://topicdiscovery-api.azure-api.net/TopicDiscovery/SearchTopic?topic=";
+const TOPIC_SEARCH_URL = process.env.PROD_SEARCH_TOPIC;
 
 export const FetchSearchTopics = async (topic) => {
   const res = await fetch(TOPIC_SEARCH_URL + topic, {
-    headers: {
-      "Ocp-Apim-Subscription-Key": "dc65a273321945f0b88671d34518e68a",
-    },
+      headers: {
+        "Ocp-Apim-Subscription-Key": process.env.SUB_KEY,
+      },
   });
   return await res.json();
 };
