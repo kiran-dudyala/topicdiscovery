@@ -48,7 +48,7 @@ export default function Search(props) {
       let data = e.target.value;
       setSearchStarted(true);
       FetchSearchTopics(e.target.value).then((res) => {
-        setSearchTopic(res.length > 0 && res.includes(data.toLocaleUpperCase())? res: [data]);
+        setSearchTopic(res.length > 0 ? res: [data]);
       });
     }
   };
