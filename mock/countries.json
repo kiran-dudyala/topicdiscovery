@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "country": "GLOBAL",
+    "code": "GLOBAL"
+  },
+  {
+    "id": 2,
+    "country": "AUSTRALIA",
+    "code": "AU"
+  },
+  {
+    "id": 3,
+    "country": "INDIA",
+    "code": "IN"
+  },
+  {
+    "id": 4,
+    "country": "NEW ZEALAND",
+    "code": "NZ"
+  },
+  {
+    "id": 5,
+    "country": "USA",
+    "code": "US"
+  },
+  {
+    "id": 9,
+    "country": "UNITED KINDOM",
+    "code": "GB"
+  }
+]
